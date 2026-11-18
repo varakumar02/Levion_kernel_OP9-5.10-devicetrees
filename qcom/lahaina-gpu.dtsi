@@ -258,6 +258,9 @@
 		vddcx-supply = <&gpu_cc_cx_gdsc>;
 		vdd-supply = <&gpu_cc_gx_gdsc>;
 
+		iommus = <&kgsl_smmu 0x5 0x400>;
+		qcom,iommu-dma = "disabled";
+
 		clocks = <&clock_gpucc GPU_CC_CX_GMU_CLK>,
 			<&clock_gpucc GPU_CC_CXO_CLK>,
 			<&clock_gcc GCC_DDRSS_GPU_AXI_CLK>,
@@ -270,18 +273,5 @@
 
 		mboxes = <&qmp_aop 0>;
 		mbox-names = "aop";
-
-		gmu_user: gmu_user {
-			compatible = "qcom,smmu-gmu-user-cb";
-			iommus = <&kgsl_smmu 0x4 0x400>;
-			qcom,iommu-dma = "disabled";
-		};
-
-		gmu_kernel: gmu_kernel {
-			compatible = "qcom,smmu-gmu-kernel-cb";
-			iommus = <&kgsl_smmu 0x5 0x400>;
-			qcom,iommu-dma = "disabled";
-		};
-
 	};
 };
