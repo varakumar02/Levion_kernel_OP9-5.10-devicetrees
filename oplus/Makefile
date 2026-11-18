@@ -1,4 +1,9 @@
 ifeq ($(CONFIG_BUILD_ARM64_DT_OVERLAY),y)
+dtbo-$(CONFIG_ARCH_LAHAINA) += \
+	lemonade-19825-lahaina-overlay.dtbo
+
+lemonade-19825-lahaina-overlay.dtbo-base := lahaina.dtb lahaina-v2.dtb lahaina-v2.1.dtb
+
 dtbo-$(CONFIG_ARCH_CAPE) +=  \
 	ovaltine-21841-cape-overlay.dtbo \
 	ovaltine-21845-cape-overlay.dtbo \

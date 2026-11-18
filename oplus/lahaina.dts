@@ -1,0 +1,17 @@
+/dts-v1/;
+
+#include "../qcom/lahaina.dtsi"
+#include "audio-lahaina/lahaina-audio.dtsi"
+#include "display-lahaina/lahaina-sde.dtsi"
+#include "lahaina_base_oplus_common.dtsi"
+
+/ {
+	qcom,msm-id = <415 0x10000>, <456 0x10000>, <501 0x10000>;
+};
+
+/* waipio-dma-heaps.dtsi's demura heap needs waipio's demura_heap_memory carveout */
+&soc {
+	qcom,dma-heaps {
+		/delete-node/ qcom,demura;
+	};
+};
